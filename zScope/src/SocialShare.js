@@ -25,7 +25,7 @@ function SocialShare() {
         <TwitterIcon size={50} round />
       </TwitterShareButton>
       <button onClick={copyToClipboard} className="copy-link-button">
-        <b>{copied ? 'Copied!' : 'Sharing Link made'}</b>
+        <b>{copied ? 'Copied!' : 'Sharing Link'}</b>
       </button>
 
       <a href="https://line.me/R/msg/text/? FarScope Which dog type are you for your Horoscope? Result is ⇒ https://https://farscope.vercel.app//"
