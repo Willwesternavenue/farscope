@@ -281,6 +281,7 @@ function App() {
         </div>
       )}
     </div>
+    <SocialShare />
       <button onClick={handleReload} className="reload-button">TOP</button>
       <p>FarScope 2024. All Rights Reserved.</p>
   </div>

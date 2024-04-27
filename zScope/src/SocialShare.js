@@ -1,13 +1,13 @@
 // SocialShare.js
 import React, { useState } from 'react';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
-import './SocialShare.css'; // CSSファイルをインポート
+import './SocialShare.css'; 
 
 function SocialShare() {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText("『わんこ星座占い』あなたの星座を犬に例えると？ 結果は⇒ https://zscopeapi-git-main-willwesternavenues-projects.vercel.app/").then(() => {
+    navigator.clipboard.writeText("FarScope Which dog type are you for your Horoscope? Result is ⇒ https://https://farscope.vercel.app//").then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }, () => {
