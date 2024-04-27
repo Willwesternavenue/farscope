@@ -134,7 +134,7 @@ function App() {
     try {
       const apiKey = process.env.REACT_APP_API_KEY;
       const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:H145?key=${apiKey}`);
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:I145?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -171,7 +171,7 @@ function App() {
     try {
       const apiKey = process.env.REACT_APP_API_KEY;
       const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:H145?key=${apiKey}`);
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:I145?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
