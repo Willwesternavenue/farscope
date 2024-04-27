@@ -18,19 +18,19 @@ function SocialShare() {
   return (
     <div className="social-share-container">
       <TwitterShareButton
-        url={"https://zscopeapi-git-main-willwesternavenues-projects.vercel.app/"}
+        url={"https://farscope.vercel.app//"}
         title={"Find your zScope here!"}
         hashtags={["Example", "React"]}
       >
         <TwitterIcon size={50} round />
       </TwitterShareButton>
       <button onClick={copyToClipboard} className="copy-link-button">
-        <b>{copied ? 'Copied!' : '共有リンク作成'}</b>
+        <b>{copied ? 'Copied!' : 'Sharing Link made'}</b>
       </button>
 
-      <a href="https://line.me/R/msg/text/?『わんこ星座占い』あなたの星座を犬に例えると？ 結果は⇒ https://zscopeapi-git-main-willwesternavenues-projects.vercel.app/"
+      <a href="https://line.me/R/msg/text/? FarScope Which dog type are you for your Horoscope? Result is ⇒ https://https://farscope.vercel.app//"
          className="line-share-button">
-        <img src="/line-512.webp" alt="LINEでシェア" className="line-icon" />
+        <img src="/line-512.webp" alt="share via LINE" className="line-icon" />
       </a>
     </div>
   );
