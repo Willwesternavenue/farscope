@@ -142,7 +142,7 @@ function App() {
       const values = data.values;
       const matchingRow = values.find(row => row[0] === mySign && row[1] === partnerSign);
       if (matchingRow) {
-        setTraits(matchingRow[7]);
+        setTraits(matchingRow[8]);
         const percentage = parseInt(matchingRow[2], 10); 
         setCompatibility(percentage);
         setAdvisory(getCompatibilityAdvisory(percentage)); 
