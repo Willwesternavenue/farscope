@@ -1,35 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import SocialShare from './SocialShare'; 
 import './App.css';
 
 function App() {
   const dogImages = {
-    'Border Collie': '/Dogs/Collie.jpg',
-    'Bulldog': '/Dogs/Ebulldog.jpg',
-    'Papillon': '/Dogs/Papillon.jpg',
-    'Labrador Retriever': '/Dogs/Lretriever.jpg',
-    'Siberian Husky': '/Dogs/Husky.jpg',
-    'German Shepherd': '/Dogs/Shepherd.jpg',
-    'Cavalier Spaniel': '/Dogs/Spaniel.jpg',
-    'Doberman': '/Dogs/Doberman.jpg',
-    'Australian Shepherd': '/Dogs/Ashepherd.jpg',
-    'Saint Bernard': '/Dogs/Bernard.jpg',
-    'Dalmatian': '/Dogs/Dalmatian.jpg',
-    'Golden Retriever': '/Dogs/Gretriever.jpg',
+    'ボーダー・コリー': '/Dogs/Collie.jpg',
+    'ブルドッグ': '/Dogs/Ebulldog.jpg',
+    'パピヨン': '/Dogs/Papillon.jpg',
+    'ラブラドール・レトリバー': '/Dogs/Lretriever.jpg',
+    'シベリアン・ハスキー': '/Dogs/Husky.jpg',
+    'ジャーマン・シェパード': '/Dogs/Shepherd.jpg',
+    'キャバリア・スパニエル': '/Dogs/Spaniel.jpg',
+    'ドーベルマン': '/Dogs/Doberman.jpg',
+    'オーストラリアン・シェパード': '/Dogs/Ashepherd.jpg',
+    'セント・バーナード': '/Dogs/Bernard.jpg',
+    'ダルメシアン': '/Dogs/Dalmatian.jpg',
+    'ゴールデン・レトリバー': '/Dogs/Gretriever.jpg',
   };
   
   const zodiacSigns = [
-    { label: "Aries (3/21-4/19)", value: "Aries" },
-    { label: "Taurus (4/20-5/20)", value: "Taurus" },
-    { label: "Gemini (5/21-6/21)", value: "Gemini" },
-    { label: "Cancer (6/22-7/22)", value: "Cancer" },
-    { label: "Leo (7/23-8/22)", value: "Leo" },
-    { label: "Virgo (8/23-9/22)", value: "Virgo" },
-    { label: "Libra (9/23-10/23)", value: "Libra" },
-    { label: "Scorpio (10/24-11/22)", value: "Scorpio" },
-    { label: "Sagittarius (11/23-12/21)", value: "Sagittarius" },
-    { label: "Capricorn (12/22-1/19)", value: "Capricorn" },
-    { label: "Aquarius (1/20-2/18)", value: "Aquarius" },
-    { label: "Pisces (2/19-3/20)", value: "Pisces" }
+    { label: "牡羊座 (3/21-4/19)", value: "牡羊座" },
+    { label: "牡牛座 (4/20-5/20)", value: "牡牛座" },
+    { label: "双子座 (5/21-6/21)", value: "双子座" },
+    { label: "蟹座 (6/22-7/22)", value: "蟹座" },
+    { label: "獅子座 (7/23-8/22)", value: "獅子座" },
+    { label: "乙女座 (8/23-9/22)", value: "乙女座" },
+    { label: "天秤座 (9/23-10/23)", value: "天秤座" },
+    { label: "蠍座 (10/24-11/22)", value: "蠍座" },
+    { label: "射手座 (11/23-12/21)", value: "射手座" },
+    { label: "山羊座 (12/22-1/19)", value: "山羊座" },
+    { label: "水瓶座 (1/20-2/18)", value: "水瓶座" },
+    { label: "魚座 (2/19-3/20)", value: "魚座" }
   ];
 
   const handleReload = () => {
@@ -58,8 +59,9 @@ function App() {
     if (partnerSign) {
       fetchDogInfo(partnerSign, setDogType2, setDogCharacter2);
     }
-  }, [mySign, partnerSign]); 
+  }, [mySign, partnerSign]); // mySign または partnerSign が変更されたときに実行
   
+  // 子の星座に関する情報を取得
   useEffect(() => {
     if (childSign) {
         fetchDogInfoChild(childSign, setDogType3, setDogCharacter3, setWeakness, setTraits);
@@ -76,7 +78,7 @@ function App() {
     try {
       const apiKey = process.env.REACT_APP_API_KEY;
       const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet4!A2:E13?key=${apiKey}`);
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet2!A2:E13?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -98,9 +100,9 @@ function App() {
 
   const fetchDogInfoChild = async (sign, setDogType3, setDogCharacter3, setWeakness) => {
     try {
-      const apiKey = process.env.REACT_APP_API_KEY;
-      const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet4!A2:E13?key=${apiKey}`);
+      const apiKey = 'AIzaSyBdSdUJ2SnudvSs0FTYe2aLugIYToCvLOU';
+      const spreadsheetId = '1_ny_jpo6gXKmSTMTaQT1o6RdEKR7UzrLA82aFc_1HV8';
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet2!A2:E13?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -133,7 +135,7 @@ function App() {
     try {
       const apiKey = process.env.REACT_APP_API_KEY;
       const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:H145?key=${apiKey}`);
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!A2:H145?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -142,9 +144,9 @@ function App() {
       const matchingRow = values.find(row => row[0] === mySign && row[1] === partnerSign);
       if (matchingRow) {
         setTraits(matchingRow[7]);
-        const percentage = parseInt(matchingRow[2], 10); 
+        const percentage = parseInt(matchingRow[2], 10); // Make sure to parse the string as an integer
         setCompatibility(percentage);
-        setAdvisory(getCompatibilityAdvisory(percentage)); 
+        setAdvisory(getCompatibilityAdvisory(percentage)); // Set the advisory message
       } else {
         setCompatibility('??');
         setAdvisory('Compatibility could not be determined.');
@@ -170,7 +172,7 @@ function App() {
     try {
       const apiKey = process.env.REACT_APP_API_KEY;
       const spreadsheetId = process.env.REACT_APP_SHEET_ID;
-      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet3!A2:H145?key=${apiKey}`);
+      const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!A2:E145?key=${apiKey}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -190,81 +192,81 @@ function App() {
 
   const getCompatibilityAdvisory = (percentage) => {
     if (percentage >= 90) {
-      return "Your compatibility is excellent!";
+      return "二人の相性は最高です！";
     } else if (percentage >= 80) {
-      return "Your compatibility is outstanding!";
+      return "二人の相性は抜群です！";
     } else if (percentage >= 70) {
-      return "Your compatibility is fair";
+      return "二人の相性はまずまずです";
     } else if (percentage >= 60) {
-      return "Your compatibility is above average";
+      return "二人の相性は平均以上";
     } else if (percentage >= 50) {
-      return "Compatibility is not so strong, but it depends on the effort!";
+      return "相性はそれほどですが、努力次第！";
     } else {
-      return "Compatibility might not be very good";
+      return "相性はあまり良くないかもしれません";
     }
   };
   
   return ( 
     <div className="App">
-      <div className="banner">FarScope by zScope</div>  
-      <p>Welcome! Please select your parents' zodiacs</p>
+      <div className="banner">わんこ 星座占い by zScope</div>  {/* バナーの追加 */}
+      <p>ようこそ！ まずはご両親の星座を選んでください</p>
       
       <div className="signs-section">
       <div className="sign-section">
-        <label>Father's Zodiac</label>
+        <label>お父さんの星座は</label>
         <select value={mySign} onChange={(e) => handleSignChange(e, setMySign)}>
-          <option value="">Select Zodiac</option>
+          <option value="">星座を選択</option>
           {zodiacSigns.map((sign, index) => (
             <option key={index} value={sign.value}>{sign.label}</option>
           ))}
         </select>
 
       {dogType1 && (
-        <p><br /><b>Your Dad is like a</b><br></br> {dogType1}</p>
+        <p><br /><b>お父さんを犬に例えると</b><br></br> {dogType1}</p>
       )}
       {dogCharacter1 && (
           <>
-        <p><b>His Character:</b><br></br> {dogCharacter1}</p>
-        <img src={dogImages[dogType1]} alt={`image：${dogType1}`} className="dog-image" />
+        <p><b>父の性格:</b><br></br> {dogCharacter1}</p>
+        <img src={dogImages[dogType1]} alt={`画像：${dogType1}`} className="dog-image" />
         </>
       )}
-      {error && (<p className="error">Error: {error}</p> )}
+      {error && (<p className="error">エラー: {error}</p> )}
       </div>      
       <div className="sign-section">
-      <label>Mother's Zodiac</label>
+      <label>お母さんの星座は</label>
         <select value={partnerSign} onChange={(e) => handleSignChange(e, setPartnerSign)}>
-          <option value="">Select Zodiac</option>
+          <option value="">星座を選択</option>
           {zodiacSigns.map((sign, index) => (
             <option key={index} value={sign.value}>{sign.label}</option>
           ))}
         </select>
-        {dogType2 && (<p><br /><b>Your Mom is like a</b><br></br> {dogType2}</p>)}
+        {dogType2 && (<p><br /><b>お母さんを犬に例えると</b><br></br> {dogType2}</p>)}
       {dogCharacter2 && (
           <>
-        <p><b>Her Character:</b><br></br> {dogCharacter2}</p>
-        <img src={dogImages[dogType2]} alt={`image：${dogType2}`} className="dog-image" />
+        <p><b>母の性格:</b><br></br> {dogCharacter2}</p>
+        <img src={dogImages[dogType2]} alt={`画像：${dogType2}`} className="dog-image" />
         </>
       )}
-      {error && (<p className="error">Error: {error}</p> )}
+      {error && (<p className="error">エラー: {error}</p> )}
   </div>
 </div>
-      {/*<button onClick={calculateCompatibility}>Check your parents compatibility</button> */}
+      {/*<button onClick={calculateCompatibility}>両親の相性をチェック</button> */}
       {
       compatibility && (
       <>
-       <p><b>Their Compatibility is {compatibility}%</b></p>
+       <p><b>二人の相性は {compatibility}% です</b></p>
         {/* <p>{advisory}</p> This line displays the advisory message */}
       </>
       )} 
 <div className="child-section">
       {thirdImage && (
         <div>
-          <img src={thirdImage} alt="own image" className="child-image" />
-          <p style={{ color: 'red' }}><b>Your Image</b></p>
-          <p>Select your zodiac to reveal your internal type</p>
-          <label>Your Zodiac </label>
+          <img src={thirdImage} alt="本人画像" className="child-image" />
+          <p style={{ color: 'red' }}><b>あなたのイメージ像</b></p>
+          <p>次に星座を選ぶと内面のタイプがわかります</p>
+          <label>あなたの星座は </label>
               <select value={childSign} onChange={(e) => handleSignChange(e, setChildSign)}>
-              <option value="">Select Zodiac</option>
+              <option value="">星座を選択</option>
               {zodiacSigns.map((sign, index) => (
             <option key={index} value={sign.value}>{sign.label}</option>
           ))}
@@ -272,17 +274,18 @@ function App() {
               <br />
       {childSign && dogCharacter3 && weakness &&(
         <>
-        <p><b>【zScope Type】 </b><br></br>{traits || 'No trait'}<br /><b>{dogType3}</b></p>
-        <p><b>Your Character: </b><br></br> {dogCharacter3}</p>
-        <p><b>Your Weekness: </b><br></br> {weakness}</p>
+        <p><b>【zScope分類名】 </b><br></br>{traits || '特徴なし'}<br /><b>{dogType3}</b></p>
+        <p><b>あなたの性格は: </b><br></br> {dogCharacter3}</p>
+        <p><b>あなたの弱点は: </b><br></br> {weakness}</p>
         </>
       )}
-      {childSign && error && <p className="error">Error: {error}</p>} 
+      {childSign && error && <p className="error">エラー: {error}</p>} 
         </div>
       )}
     </div>
-      <button onClick={handleReload} className="reload-button">TOP</button>
-      <p>FarScope 2024. All Rights Reserved.</p>
+      <SocialShare />
+      <button onClick={handleReload} className="reload-button">TOPへ</button>
+      <p>zScope 2024. All Rights Reserved.</p>
   </div>
   );
 }
