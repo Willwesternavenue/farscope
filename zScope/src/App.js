@@ -284,6 +284,7 @@ function App() {
     </div>
     <SocialShare />
       <button onClick={handleReload} className="reload-button">TOP</button>
+      <a href="https://zscopeapi.vercel.app/" class="english-button">日本語</a>
       <p>FarScope 2024. All Rights Reserved.</p>
   </div>
   );
