@@ -151,7 +151,7 @@ function App() {
         setAdvisory('Compatibility could not be determined.');
         console.log('Received data:', data);
         console.log('Matching row:', matchingRow);
-        console.log('Traits value:', matchingRow[7]);
+        console.log('Traits value:', matchingRow[8]);
       }
     } catch (error) {
       console.error('Error fetching compatibility data:', error);
